@@ -1,40 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
-
-local Window = Rayfield:CreateWindow({
-	Name = "Myth's Hub | Hoopz",
-	LoadingTitle = "Myth's Hub",
-	LoadingSubtitle = "by Myth",
-	ConfigurationSaving = {
-		Enabled = true,
-		FolderName = MythsFolder, -- Create a custom folder for your hub/game
-		FileName = ""
-	},
-        Discord = {
-        	Enabled = false,
-        	Invite = "", -- The Discord invite code, do not include discord.gg/
-        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-        },
-	KeySystem = true, -- Set this to true to use our key system
-	KeySettings = {
-		Title = "Myth's Hub",
-		Subtitle = "Key System",
-		FileName = "MythsKey",
-		SaveKey = true,
-		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-		Key = "jxlhyshSNonmJD5uhYJz"
-	}
-})
-
-local MainTab = Window:CreateTab("Main", 4483362458) -- Title, Image
-local MiscTab = Window:CreateTab("Misc", 4483362458) -- Title, Image
-local ExploitsTab = Window:CreateTab("Exploits", 4483362458) -- Title, Image
-
-local Toggle = MainTab:CreateToggle({
-	Name = "Aimbot",
-	CurrentValue = false,
-	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(Value)
-		game:GetService("Players").Name = "Players"
+game:GetService("Players").Name = "Players"
 
 function closestHoop()
     local dist,hoop = math.huge
@@ -135,15 +99,3 @@ old = hookmetamethod(game,"__namecall",function(self,...)
     end
     return old(self,...)
 end)
-	end,
-})
-
-local Toggle = MainTab:CreateToggle({
-	Name = "Walkspeed (Default Set to 18)",
-	CurrentValue = false,
-	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 18
-	end,
-})
-
